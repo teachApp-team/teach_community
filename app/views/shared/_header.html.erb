@@ -1,0 +1,87 @@
+<header>
+    <a href="/" class="header-logo"><span>Teach</span>Community</a>
+    <input type="checkbox" id="check" style="display: none">
+    <label for="check" class="checkbtn">
+    <i class="fas fa-align-justify header-menu-icon"></i>   
+    </label>
+    <ul class="header-items">
+        <% if @current_teacher %>
+            <li>
+                <%= link_to "#{@current_teacher.nickname}さん", @current_teacher %>
+                <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+            </li>
+        <% elsif @current_student %>
+            <li>
+                <%= link_to "#{@current_student.nickname}くん", @current_student %>
+                <%= link_to "Logout", logout_path, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+            </li>
+        <% else %>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#teacherLoginModal">Teacher</a>
+            </li>
+            <li>
+                <a href="#" data-toggle="modal" data-target="#studentLoginModal">Student</a>
+            </li>
+            <li>
+                <a href="#">Communities</a> 
+            </li>
+        <% end %>
+    </ul>
+    
+    
+</header>
+
+<!-- teacherLoginModal -->
+<div class="modal fade" id="teacherLoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-teacherLogin-wrapper">
+          
+        <div class="login-box">
+            <h1>Login</h1>
+            <%= form_for(:session, method: :post, url: login_path) do |f| %>
+                <div class="textbox">
+                    <i class="fas fa-user"></i>
+                    <%= f.text_field :nickname, placeholder: "Nickame" %>
+                </div>
+                <div class="textbox">
+                    <i class="fas fa-unlock-alt"></i>
+                    <%= f.password_field :password, placeholder: "Password" %>
+                </div>
+                
+                <%= f.submit "Login", class: "button" %>
+            <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- teacherLoginModal -->
+<div class="modal fade" id="studentLoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-teacherLogin-wrapper">
+          
+        <div class="login-box">
+            <h1>SLogin</h1>
+            <%= form_for(:session, method: :post, url: login_path) do |f| %>
+                <div class="textbox">
+                    <i class="fas fa-user"></i>
+                    <%= f.text_field :nickname, placeholder: "Nickame" %>
+                </div>
+                <div class="textbox">
+                    <i class="fas fa-unlock-alt"></i>
+                    <%= f.password_field :password, placeholder: "Password" %>
+                </div>
+                
+                <%= f.submit "Login", class: "button" %>
+            <% end %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
