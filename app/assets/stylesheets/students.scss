@@ -1,3 +1,90 @@
-// Place all the styles related to the students controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.fullpageMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #151515;
+    transition: .4s;
+}
+
+.fullpageMenu .banner {
+    position: relative;
+    min-width: 600px;
+    min-height: 100vh;
+}
+
+.fullpageMenu .banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fullpageMenu .navLists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.fullpageMenu .navLists ul {
+    position: relative;
+}
+
+.fullpageMenu .navLists ul li {
+    position: relative;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.fullpageMenu .navLists ul li a {
+    position: relative;
+    color: #fff;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    padding-top: 12px;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: .4s ease-in-out;
+}
+
+.fullpageMenu .navLists ul li a:before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #fff;
+}
+
+.fullpageMenu .navLists ul li:hover a {
+    transform: translateY(-100%);
+    color: #fff;
+}
+
+.fullpageMenu .navLists ul li:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff0047;
+    transition: transform .4s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+.fullpageMenu .navLists ul li:hover:before {
+    transition: transform .4s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
