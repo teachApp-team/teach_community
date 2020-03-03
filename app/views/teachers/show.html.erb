@@ -1,2 +1,91 @@
-<h1>Teachers#show</h1>
-<p>Find me in app/views/teachers/show.html.erb</p>
+<div class="flash-padding"></div>
+
+<div class="fullpageMenu">
+    <div class="banner">
+        <%= image_tag "show_bg.jpg" %>
+    </div>
+    <div class="navLists">
+        <ul>
+            <li><a href="#" data-text="プロフィール" data-toggle="modal" data-target="#exampleModal">Your Profile</a></li>
+            <li><a href="#" data-text="担当の生徒">Your Students</a></li>
+            <li><a href="#" data-text="コミュニティ">Communities</a></li>
+            <li><a href="#" data-text="メッセージ">Messages</a></li>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    　<div class="modal-image">
+    　    <%= image_tag "83187794.jpeg", class: "box-img" %>
+    　</div>
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= @teacher.full_name %>　先生</h5>
+      </div>
+      
+      <div class="modal-body">
+          <div class="modal-your-students">
+            <h6>あなたの担当している生徒一覧</h6>
+            <ul>
+                <% @teacher.students.each do |s| %>
+                <li>
+                  <%= s.full_name %> 君
+                </li>
+                <% end %>
+            </ul>
+          </div>
+          
+          <div class="modal-your-commnunities">
+              <h6>あなたの所属しているコミュニティ一覧</h6>
+              
+          </div>
+          
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn btn-primary">変更する</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="box-profile" role="document">-->
+             
+<!--              <h1></h1>-->
+<!--              <h2><%= @teacher.nickname %></h2>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        ...-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,3 +1,37 @@
 // Place all the styles related to the teachers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.modal-content {
+    width: 450px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: white;
+    font-family: 'Century Gothic' ,sans-serif;
+}
+
+.modal-header {
+    margin: auto;
+}
+
+.box-img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.box-profile > h1 {
+    font-size: 40px;
+    letter-spacing: 4px;
+    font-weight: 100;
+}
+
+.modal-your-students {
+    margin-bottom: 30px;
+}
+
+li {
+    color: white;
+}
