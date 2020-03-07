@@ -10,13 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_064245) do
+ActiveRecord::Schema.define(version: 2020_03_04_163002) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+  create_table "entries", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "teacher_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["student_id"], name: "index_entries_on_student_id"
+    t.index ["teacher_id"], name: "index_entries_on_teacher_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "teacher_id"
+    t.integer "room_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["student_id"], name: "index_messages_on_student_id"
+    t.index ["teacher_id"], name: "index_messages_on_teacher_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_rooms_on_student_id"
+    t.index ["teacher_id"], name: "index_rooms_on_teacher_id"
   end
 
   create_table "students", force: :cascade do |t|

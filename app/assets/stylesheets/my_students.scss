@@ -1,0 +1,112 @@
+.student_card > a {
+    text-decoration: none;
+    color: #fff;
+}
+
+section {
+    padding: 10rem 0;
+    background-color: #fff;
+}
+
+.my_students_heading {
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+    margin-right: -3px;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+.my_students_heading:after {
+    content: "";
+    width: 10rem;
+    height: .8rem;
+    background-color: #45e19f;
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
+.students_card_wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.my_students_container .student_card {
+    width: 25rem;
+    // height: 400px;
+    background-color: #ebeef8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    box-shadow: .5rem .5rem 3rem rgba(0,0,0,0.2);
+}
+
+.student_card .student_card_img {
+    // width: 100%;
+    // height: 26rem;
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 78%,0% 100%)
+}
+
+.student_card .student_profile_img {
+    width: 150px;
+    height: 150px;
+    margin: 5px 0;
+    object-fit: cover;
+    border-radius: 80%;
+    margin-top: -7rem;
+    z-index: 999;
+    border: 5px solid #ebeef8;
+}
+
+.student_card > h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 1.5rem 0;
+}
+
+.student_school {
+    font-size: 1.3rem;
+    
+}
+
+.student_university {
+    font-family: 'Osaka';
+    font-size: 1.4rem;
+}
+
+.about_student {
+    margin: 0.5rem 1rem;
+}
+
+.student_card .student_btn {
+    padding: 0.8rem 2.4rem;
+    background-color: #445ae3;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    color: #eee;
+    font-size: 1rem;
+}
+
+.student_card .student_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: .5rem .5rem 2rem rgba(0,0,0,.2);
+}
+
+.student_card .student_btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}

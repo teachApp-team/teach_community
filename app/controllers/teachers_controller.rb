@@ -4,7 +4,10 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.find(params[:id])
-    
+  end
+  
+  def my_students
+    @teacher = Teacher.find(params[:id])
   end
 
   def new
