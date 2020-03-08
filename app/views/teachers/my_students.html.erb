@@ -1,0 +1,22 @@
+<section>
+    <div class="my_students_container">
+        <h1 class="my_students_heading">Meet Your Students</h1>
+        <div class="students_card_wrapper">
+            <div class="student_card">
+                 <% @teacher.students.each do |s| %>
+                 <%= image_tag "show_bg.jpg", alt:"student_card background", class: "student_card_img" %>
+                 <%= image_tag "805739.JPG", alt:"student_profile img", class: "student_profile_img" %>
+                 <h1><%= s.full_name %> 君</h1>
+                 <p class="student_school"><%= s.high_school %>:在学</p>
+                 <p class="student_university">志望大学:<%= s.university %></p>
+                 <p class="about_student">
+                     生徒に関する情報をメモすることができます。
+                     <br>
+                     例えば　内気な性格、真面目な性格だが宿題忘れがちなど。
+                 </p>
+                 <a href="#" class="student_btn">成績状況</a>
+                 <% end %>
+            </div>
+        </div>
+    </div>
+</section>

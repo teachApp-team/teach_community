@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#top'
   get 'samples/hello'
   get 'samples/login_form'
+  get 'my_students/:id', to: 'teachers#my_students'
   
   resources :teachers
   resources :students
