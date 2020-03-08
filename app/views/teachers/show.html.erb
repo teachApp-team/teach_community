@@ -7,7 +7,7 @@
     <div class="navLists">
         <ul>
             <li><a href="#" data-text="プロフィール" data-toggle="modal" data-target="#exampleModal">Your Profile</a></li>
-            <li><a href="#" data-text="担当の生徒">Your Students</a></li>
+            <li><a href="/my_students/<%= @current_teacher.id %>" data-text="担当の生徒">Your Students</a></li>
             <li><a href="#" data-text="コミュニティ">Communities</a></li>
             <li><a href="#" data-text="メッセージ">Messages</a></li>
         </ul>
@@ -17,7 +17,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     　<div class="modal-image">
-    　    <%= image_tag "83187794.jpeg", class: "box-img" %>
+    　    <%= image_tag "m_20190312184.jpg", class: "box-img" %>
     　</div>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><%= @teacher.full_name %>　先生</h5>

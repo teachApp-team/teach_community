@@ -32,3 +32,26 @@ Student.create([
         teacher_id: 2
     }
 ])
+
+Room.create([
+    {
+        teacher_id: 2,
+        student_id: 2
+    }
+])
+
+Message.create([
+    {
+        content: "よろしく",
+        teacher_id: 2,
+        student_id: 2,
+        room_id: 1
+    },
+    {
+        content: "こちらこそ",
+        teacher_id: 2,
+        student_id: 2,
+        room_id: 1
+    }
+])
+
