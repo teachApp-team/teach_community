@@ -13,6 +13,12 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'bcrypt'
 
+# 画像アップロード機能のためのgem
+# sudo yum -y install libjpeg-devel libpng-devel
+# sudo yum -y install ImageMagick ImageMagick-devel
+gem 'carrierwave'
+gem 'rmagick'
+
 group :development, :test do
   gem 'sqlite3',      '1.3.13'
   gem 'byebug', '9.0.6', platform: :mri

@@ -1,2 +1,19 @@
+<div class="flash-padding"></div>
+
 <h1>Teachers#edit</h1>
 <p>Find me in app/views/teachers/edit.html.erb</p>
+
+<% if @teacher.image? %>
+  <%= image_tag @teacher.image.url, class: "box-img" %>
+<% else %>
+   <%= image_tag "m_20190312184.jpg", class: "box-img" %>
+<% end %>
+
+<%= form_for @teacher do |f| %>
+    <div class="form-group">
+        <%= f.file_field :image, class: "form-control" %>
+    </div>
+    <%= f.hidden_field :full_name, value: @teacher.full_name %>
+    <%= f.hidden_field :nickname, value: @teacher.nickname %>
+    <%= f.submit "送信", class: "btn btn-outline-success" %>
+<% end %>

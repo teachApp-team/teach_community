@@ -8,7 +8,7 @@
         <ul>
             <li><a href="#" data-text="プロフィール" data-toggle="modal" data-target="#exampleModal">Your Profile</a></li>
             <li><a href="/my_students/<%= @current_teacher.id %>" data-text="担当の生徒">Your Students</a></li>
-            <li><a href="#" data-text="コミュニティ">Communities</a></li>
+            <li><a href="/communities" data-text="コミュニティ">Communities</a></li>
             <li><a href="#" data-text="メッセージ">Messages</a></li>
         </ul>
     </div>
@@ -17,7 +17,11 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
     　<div class="modal-image">
-    　    <%= image_tag "m_20190312184.jpg", class: "box-img" %>
+        <% if @current_teacher.image? %>
+          <%= image_tag @current_teacher.image.url, class: "box-img" %>
+        <% else %>
+           <%= image_tag "m_20190312184.jpg", class: "box-img" %>
+        <% end %>
     　</div>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><%= @teacher.full_name %>　先生</h5>
@@ -45,6 +49,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
         <button type="button" class="btn btn-primary">変更する</button>
+        <%= link_to "画像変更", edit_teacher_path(@current_teacher.id), class: "btn btn-outline-light" %>
       </div>
     </div>
   </div>

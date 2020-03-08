@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_03_111556) do
+ActiveRecord::Schema.define(version: 2020_03_08_080303) do
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(version: 2020_03_03_111556) do
     t.text "introduction"
     t.integer "auth_code"
     t.boolean "openness"
-
-ActiveRecord::Schema.define(version: 2020_03_04_163002) do
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "entries", force: :cascade do |t|
     t.integer "student_id"
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_163002) do
   create_table "rooms", force: :cascade do |t|
     t.integer "student_id"
     t.integer "teacher_id"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_rooms_on_student_id"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_163002) do
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
 end

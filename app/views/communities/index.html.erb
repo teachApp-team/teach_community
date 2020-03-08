@@ -9,3 +9,9 @@
     <p><%= com.auth_code %></p>
     
 <% end %>
+<hr></hr>
+<% if @myComs.present? %>
+    <% @myComs.each do |mycom| %>
+        <h2><%= mycom.name %></h2>
+    <% end %>
+<% end %>
