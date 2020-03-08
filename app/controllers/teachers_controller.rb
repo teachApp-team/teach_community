@@ -3,8 +3,6 @@ class TeachersController < ApplicationController
   end
 
   def show
-    @teacher = Teacher.find(params[:id])
-    
   end
 
   def new

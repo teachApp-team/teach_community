@@ -32,3 +32,22 @@ Student.create([
         teacher_id: 2
     }
 ])
+
+Community.create([
+    {
+        name: "first-community",
+        auth_code: 1234,
+        openness: false,
+        introduction: "hello this is first-community!! nice to meet you"
+    },
+    {
+        name: "second-community",
+        openness: true,
+        introduction: "こんにちは。自由にご参加ください。"
+    }
+])
+
+Community.first.teachers << Teacher.first
+Community.first.students << Student.first
+Community.second.teachers << Teacher.second
+Community.second.students << Student.second

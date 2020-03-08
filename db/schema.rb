@@ -10,11 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_064245) do
+ActiveRecord::Schema.define(version: 2020_03_03_111556) do
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+  create_table "com_student_relations", force: :cascade do |t|
+    t.integer "community_id"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_com_student_relations_on_community_id"
+    t.index ["student_id"], name: "index_com_student_relations_on_student_id"
+  end
+
+  create_table "com_teacher_relations", force: :cascade do |t|
+    t.integer "community_id"
+    t.integer "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_com_teacher_relations_on_community_id"
+    t.index ["teacher_id"], name: "index_com_teacher_relations_on_teacher_id"
+  end
+
+  create_table "communities", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.integer "auth_code"
+    t.boolean "openness"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
