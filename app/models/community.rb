@@ -5,4 +5,6 @@ class Community < ApplicationRecord
     has_many :students, through: :com_student_relations
     
     validates :name, presence: :true
+    
+    mount_uploader :image, ImageUploader
 end

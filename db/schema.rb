@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_080303) do
+ActiveRecord::Schema.define(version: 2020_03_08_131658) do
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"
@@ -30,14 +30,8 @@ ActiveRecord::Schema.define(version: 2020_03_08_080303) do
     t.index ["teacher_id"], name: "index_com_teacher_relations_on_teacher_id"
   end
 
-  create_table "communities", force: :cascade do |t|
-    t.string "name"
-    t.text "introduction"
-    t.integer "auth_code"
-    t.boolean "openness"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "communities" because of following StandardError
+#   Unknown type 'srting' for column 'image'
 
   create_table "entries", force: :cascade do |t|
     t.integer "student_id"
@@ -81,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_080303) do
     t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
 

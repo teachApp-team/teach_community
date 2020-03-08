@@ -1,2 +1,20 @@
-<h1>Communities#edit</h1>
-<p>Find me in app/views/communities/edit.html.erb</p>
+<div class="flash-padding"></div>
+
+<% if @com.image? %>
+  <%= image_tag @com.image.url, class: "box-img" %>
+<% else %>
+   <%= image_tag "m_20190312184.jpg", class: "box-img" %>
+<% end %>
+<p><%= @com.name %></p>
+<p><%= @com.introduction %></p>
+<p><%= @com.auth_code %></p>
+<p><%= @com.openness %></p>
+
+<%= form_for @com do |f| %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :name, value: @com.name %>
+    <%= f.hidden_field :introduction, value: @com.introduction %>
+    <%= f.hidden_field :auth_code, value: @com.auth_code %>
+    <%= f.hidden_field :openness, value: @com.openness %>
+    <%= f.submit "送信", class: "btn btn-outline-success" %>
+<% end %>

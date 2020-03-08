@@ -1,17 +1,26 @@
-<div class="flash-padding"></div>
-<h1>Communities#index</h1>
-<p>Find me in app/views/communities/index.html.erb</p>
-<hr></hr>
+<section class="com_index_wrapper">
+    <div class="com_index_card_wrapper">
+        <% if @coms.present? %>
+        
+        <% @coms.each do |com| %>
+            <div class="com_index_card">
+                <% if com.image? %>
+                  <%= image_tag com.image.url %>
+                <% else %>
+                  <%= image_tag "m_20190312184.jpg" %>
+                <% end %>
+                <p class="com_title"><%= com.name %></p>
+                <div class="com_detail">
+                    <p class="com_intro"><%= com.introduction %></p>
+                </div>
+                <div class="action">
+                    <div class="icon info"><a href="/communities/<%= com.id %>"><i class="fas fa-info"></i></a></div>
+                    <div class="icon plus"><i class="fas fa-plus"></i></div>
+                    <div class="icon users"><i class="fas fa-users"></i></div>
+                </div>
+            </div>
+        <% end %>
 
-<% @coms.each do |com| %>
-    <h3><%= com.name %></h3>
-    <p><%= com.introduction %></p>
-    <p><%= com.auth_code %></p>
-    
-<% end %>
-<hr></hr>
-<% if @myComs.present? %>
-    <% @myComs.each do |mycom| %>
-        <h2><%= mycom.name %></h2>
-    <% end %>
-<% end %>
+        <% end %>
+    </div>
+</section>

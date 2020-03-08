@@ -30,6 +30,33 @@ Student.create([
         high_school: "都立三鷹高校",
         university: "慶應義塾大学",
         teacher_id: 2
+    },
+    {
+        full_name: "ruby on rails",
+        nickname: "rails",
+        password: "password",
+        password_confirmation: "password",
+        high_school: "開成高校",
+        university: "ハーバード大学",
+        teacher_id: 1
+    },
+    {
+        full_name: "google python",
+        nickname: "python",
+        password: "password",
+        password_confirmation: "password",
+        high_school: "灘高校",
+        university: "マサチューセッツ工科大学",
+        teacher_id: 2
+    },
+    {
+        full_name: "apple php",
+        nickname: "php",
+        password: "password",
+        password_confirmation: "password",
+        high_school: "筑波大学附属高校",
+        university: "すダンフォード大学",
+        teacher_id: 1
     }
 ])
 

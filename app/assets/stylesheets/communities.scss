@@ -5,5 +5,87 @@
 .communities-new-wrapper {
     width: 100%;
     height: 100vh;
-    background: #252525;
+}
+
+.com_index_wrapper {
+    width: 100%;
+    min-height: 100vh;;
+}
+
+.com_index_card_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.com_index_card {
+    width: 300px;
+    height: 500px;
+    background: white;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 0 10px black;
+}
+
+.com_index_card img {
+    width: 100%;
+    height: 45%;
+}
+
+.com_index_card .com_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+.com_index_card .com_detail {
+    margin-top: 40px;
+}
+
+.com_index_card .action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.com_index_card .action .icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 27.5px;
+    font-size: 20px;
+    transition: .4s;
+    box-shadow: 0 0 8px gray;
+}
+.com_index_card .action .icon.info {
+    background: #888;
+    color: white;
+}
+.com_index_card .action .icon.plus {
+    background: tomato;
+    color: white;
+}
+.com_index_card .action .icon.users {
+    background: #65ff65;
+    color: white;
+}
+.com_index_card .action .icon:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+.com_index_card .action .icon a {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
