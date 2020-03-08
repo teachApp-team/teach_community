@@ -1,0 +1,19 @@
+<div class="flash-padding"></div>
+<div class="communities-new-wrapper">
+    
+    <div class="login-box">
+        <h1> Creating a Community</h1>
+        <%= form_for @new_com do |f| %>
+            <div class="textbox">
+                <i class="fas fa-user"></i>
+                <%= f.text_field :name, placeholder: "name" %>
+            </div>
+            <div class="textbox">
+                <i class="fas fa-unlock-alt"></i>
+                <%= f.text_field :introduction, placeholder: "introduction" %>
+            </div>
+            
+            <%= f.submit "Login", class: "button" %>
+        <% end %>
+    </div>
+</div>
