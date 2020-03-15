@@ -1,11 +1,10 @@
 <div class = "chat-body">
-  <h1>Message</h1>
   <div class = "chat-container">
     <div class = "search-container">
       <input type="text" placeholder="Search" >
     </div>
     <div class = "conversation-list">
-      <div class = "conversation">
+      <div class = "conversation active">
         <%= image_tag '805739.JPG', class:"" %>
         <div class="title-text">
           HIROHARU
@@ -17,12 +16,70 @@
           This is a message
         </div>
       </div>
+      <div class = "conversation">
+        <%= image_tag 'm_20190312184.jpg', class:"" %>
+        <div class="title-text">
+          ピエール滝
+        </div>
+        <div class="created-date">
+          Apr 18
+        </div>
+        <div class="conversation-message">
+          This is a message
+        </div>
+      </div>
     </div>
-    <div class = "new-message-container"></div>
+    
+    <div class = "new-message-container">
+      <a href="#">+</a>
+    </div>
     <div class = "chat-title">
       <span>HIROHARU</span>
     </div>
-    <div class = "chat-message-list"></div>
+    
+    
+    <div class = "chat-message-list">
+      <div class="message-row you-message">
+        <div class="message-content">
+          <div class="message-text">Sure</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+      <div class="message-row other-message">
+        <div class="message-content">
+          <%= image_tag '805739.JPG', class:"" %>
+          <div class="message-text">Thanks.man I think it's the best way.</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+      <div class="message-row you-message">
+        <div class="message-content">
+          <div class="message-text">I think so.</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+      <div class="message-row other-message">
+        <div class="message-content">
+          <%= image_tag '805739.JPG', class:"" %>
+          <div class="message-text">Do you have idea else</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+      <div class="message-row you-message">
+        <div class="message-content">
+          <div class="message-text">No</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+      <div class="message-row other-message">
+        <div class="message-content">
+          <%= image_tag '805739.JPG', class:"" %>
+          <div class="message-text">Ok then</div>
+          <div class="message-item">Apr 16</div>
+        </div>
+      </div>
+    </div>
+      
     <div class = "chat-form">
       <input type="text" placeholder="type a message">
     </div>
