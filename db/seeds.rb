@@ -92,13 +92,43 @@ Message.create([
         content: "よろしく",
         teacher_id: 2,
         student_id: 2,
-        room_id: 1
+        room_id: 1,
+        which: 1
     },
     {
-        content: "こちらこそ",
+        content: "こちらこそです！",
         teacher_id: 2,
         student_id: 2,
-        room_id: 1
+        room_id: 1,
+        which: 2
+    },
+    {
+        content: "調子どう？",
+        teacher_id: 2,
+        student_id: 2,
+        room_id: 1,
+        which: 1
+    },
+    {
+        content: "最高です！",
+        teacher_id: 2,
+        student_id: 2,
+        room_id: 1,
+        which: 2
+    },
+    {
+        content: "頑張れよ",
+        teacher_id: 2,
+        student_id: 1,
+        room_id: 1,
+        which: 1
+    },
+    {
+        content: "ありがとうございます",
+        teacher_id: 2,
+        student_id: 1,
+        room_id: 1,
+        which: 2
     }
 ])
 

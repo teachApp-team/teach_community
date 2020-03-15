@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'samples/login_form'
   get 'my_students/:id', to: 'teachers#my_students'
   
-  get 'my_messages/:id', to: 'rooms#show'
+  get 'my_messages/:student_id', to: 'rooms#show'
   
   
   resources :teachers

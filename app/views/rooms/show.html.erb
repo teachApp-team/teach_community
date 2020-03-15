@@ -4,84 +4,105 @@
       <input type="text" placeholder="Search" >
     </div>
     <div class = "conversation-list">
-      <div class = "conversation active">
-        <%= image_tag '805739.JPG', class:"" %>
-        <div class="title-text">
-          HIROHARU
-        </div>
-        <div class="created-date">
-          Apr 16
-        </div>
-        <div class="conversation-message">
-          This is a message
-        </div>
-      </div>
-      <div class = "conversation">
-        <%= image_tag 'm_20190312184.jpg', class:"" %>
-        <div class="title-text">
-          ピエール滝
-        </div>
-        <div class="created-date">
-          Apr 18
-        </div>
-        <div class="conversation-message">
-          This is a message
-        </div>
-      </div>
+      <% if @current_teacher.students.present? %>
+        <% @current_teacher.students.each do |student| %>
+          <% if student.id == @this_student.id %>
+            <a href="/my_messages/<%= student.id %>">
+              <div class = "conversation active">
+                <% if student.image? %>
+                  <%= image_tag student.image.url, class: "" %>
+                <% else %>
+                  <%= image_tag '805739.JPG', class:"" %>
+                <% end %>                
+                <div class="title-text">
+                  <%= student.nickname %>
+                </div>
+                <div class="created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  <%= student.full_name %>
+                </div>
+              </div>
+            </a>
+          <% else %>
+            <a href="/my_messages/<%= student.id %>">
+              <div class = "conversation">
+                <% if student.image? %>
+                  <%= image_tag student.image.url, class: "" %>
+                <% else %>
+                  <%= image_tag '805739.JPG', class:"" %>
+                <% end %>  
+                <div class="title-text">
+                  <%= student.nickname %>
+                </div>
+                <div class="created-date">
+                  Apr 16
+                </div>
+                <div class="conversation-message">
+                  <%= student.full_name %>
+                </div>
+              </div>
+            </a>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
     
     <div class = "new-message-container">
       <a href="#">+</a>
     </div>
     <div class = "chat-title">
-      <span>HIROHARU</span>
+      <span><%= @this_student.nickname %></span>
     </div>
     
     
     <div class = "chat-message-list">
-      <div class="message-row you-message">
-        <div class="message-content">
-          <div class="message-text">Sure</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
-      <div class="message-row other-message">
-        <div class="message-content">
-          <%= image_tag '805739.JPG', class:"" %>
-          <div class="message-text">Thanks.man I think it's the best way.</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
-      <div class="message-row you-message">
-        <div class="message-content">
-          <div class="message-text">I think so.</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
-      <div class="message-row other-message">
-        <div class="message-content">
-          <%= image_tag '805739.JPG', class:"" %>
-          <div class="message-text">Do you have idea else</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
-      <div class="message-row you-message">
-        <div class="message-content">
-          <div class="message-text">No</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
-      <div class="message-row other-message">
-        <div class="message-content">
-          <%= image_tag '805739.JPG', class:"" %>
-          <div class="message-text">Ok then</div>
-          <div class="message-item">Apr 16</div>
-        </div>
-      </div>
+      
+      <% if @messages.present? %>
+        <% @messages.order(id: "DESC").each do |message| %>
+          <% if message.which == 1 %>
+            <div class="message-row you-message">
+              <div class="message-content">
+                <div class="message-text" data-toggle="collapse" href="#multiCollapseExample<%= message.id %>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%= message.id %>"><%= message.content %></div>
+                  <div class="collapse multi-collapse" id="multiCollapseExample<%= message.id %>">
+                    <div class="message-tool-wrapper">
+                      <%= link_to "削除", message_path(message), class: "btn btn-danger tool", method: "delete" %>
+                      <%= link_to "編集", "#", class: "btn btn-warning tool" %>
+                    </div>
+                  </div>                
+                <div class="message-item">Apr 16</div>
+              </div>
+            </div>
+          <% elsif message.which == 2 %>
+            <div class="message-row other-message">
+              <div class="message-content">
+                <% if @this_student.image? %>
+                  <%= image_tag @this_student.image.url, class: "" %>
+                <% else %>
+                  <%= image_tag '805739.JPG', class:"" %>
+                <% end %>  
+                <div class="message-text"><%= message.content %></div>
+                <div class="message-item">Apr 16</div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+      
     </div>
       
     <div class = "chat-form">
-      <input type="text" placeholder="type a message">
+      <!--<input type="text" placeholder="type a message">-->
+      <%= form_for(@new_message, url: messages_path ) do |f| %>
+        <%= f.text_field :content, placeholder: "type a message"  %>
+        <%= f.hidden_field :teacher_id, value: @current_teacher.id %>
+        <%= f.hidden_field :student_id, value: @this_student.id %>
+        <%= f.hidden_field :room_id, value: 1 %>
+        <%= f.hidden_field :which, value: 1 %>
+        
+        <%= f.submit "SUBMIT", class: "btn btn-outline-primary chat-submit-btn" %>
+      <% end %>
     </div>
     
   </div>
@@ -105,7 +126,7 @@
     <h2>送信履歴</h2>
     
     
-    <%= form_for @message do |f| %>
+    <%= form_for @new_message do |f| %>
       <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
     
       <%= f.submit "投稿する" %>
