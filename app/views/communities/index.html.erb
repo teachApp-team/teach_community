@@ -15,7 +15,7 @@
                 </div>
                 <div class="action">
                     <div class="icon info"><a href="/communities/<%= com.id %>"><i class="fas fa-info"></i></a></div>
-                    <div class="icon plus"><i class="fas fa-plus"></i></div>
+                    <div class="icon plus" data-toggle="modal" data-target="#studentAddModal<%= com.id %>"><i class="fas fa-plus"></i></div>
                     <div class="icon users"><i class="fas fa-users"></i></div>
                 </div>
             </div>
@@ -24,3 +24,40 @@
         <% end %>
     </div>
 </section>
+
+<!-- teacherLoginModal -->
+<% @coms.each do |com| %>
+<div class="modal fade" id="studentAddModal<%= com.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-teacherLogin-wrapper">
+        <div class="login-box">
+            <% if !com.openness %>
+          <%= form_for(:add, method: :post, url: add_path) do |f| %>
+                <div class="textbox">
+                    <i class="fas fa-user"></i>
+                    <%= f.text_field :auth_code, placeholder: "code" %>
+                </div>
+                <% if @current_student %>
+                    <%= f.hidden_field :student_id, value: @current_student.id %>
+                    <%= f.hidden_field :community_id, value: com.id %>
+                <% end %>
+                
+                <%= f.submit "Join", class: "button" %>
+          <% end %>
+            <% else %>
+                  <%= form_for(:add, method: :post, url: add_path) do |f| %>
+                        <% if @current_student %>
+                            <%= f.hidden_field :student_id, value: @current_student.id %>
+                            <%= f.hidden_field :community_id, value: com.id %>
+                        <% end %>
+                        
+                        <%= f.submit "Join", class: "button" %>
+                  <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

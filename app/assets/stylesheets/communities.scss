@@ -91,3 +91,201 @@
     justify-content: space-around;
     align-items: center;
 }
+
+// 詳細ページ
+
+.community-show-wrapper {
+    background: #fff;
+    padding: 20px 30px;
+}
+.community-show-wrapper .name-wrapper {
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    height: 500px;
+}
+
+.community-show-wrapper .name-wrapper .com-image {
+    width: 40%;
+    height: 100%;
+}
+.community-show-wrapper .name-wrapper .com-image img {
+    width: 100%;
+    height: 100%;
+}
+.community-show-wrapper .name-wrapper .com-intro {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.community-show-wrapper .name-wrapper .com-intro h3 {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Georgia';
+    margin-bottom: 45px;
+    padding: 30px 40px;
+    border-bottom: 3px solid #cdcdcd;
+}
+.community-show-wrapper .students-wrapper{
+    display: flex;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    overflow-x: scroll;
+    border-bottom: 3px solid #898989;
+}
+
+.community-show-wrapper .students-wrapper .ball-container {
+    width: 120px;
+    height: 120px;
+}
+.community-show-wrapper .students-wrapper .ball-container a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    transition: .4s;
+}
+.community-show-wrapper .students-wrapper .ball-container a img {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    transition: .4s;
+}
+.community-show-wrapper .students-wrapper .ball-container a .name {
+    font-size: 20px;
+    margin: 4px 0;
+    padding: 0;
+    transition: .4s;
+}
+.community-show-wrapper .students-wrapper .ball-container a:hover
+{
+    background: #fff;
+}
+.community-show-wrapper .students-wrapper .ball-container a:hover img
+{
+    background: #fff;
+    width: 80%;
+    height: 80%;
+}
+
+.students-wrapper-ttl {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    margin: 40px 0 10px;
+}
+
+// 詳細ページのランキング表示
+
+.com-test-ranking-wrapper {
+    background: #eee;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 300px;
+}
+.com-test-ranking-wrapper .fa-accusoft {
+    font-size: 100px;
+}
+.com-test-ranking-wrapper .rank-card {
+    position: relative;
+    width: 260px;
+    height: 150px;
+    border: 1px solid black;
+    background: #252525;
+    color: white;
+    overflow: hidden;
+    margin-right: 20px;
+    transition: .9s;
+}
+.com-test-ranking-wrapper .rank-card:hover {
+    height: 300px;
+}
+.com-test-ranking-wrapper .rank-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(87, 192, 17);
+    clip-path: circle(120px at 80% 20%);
+    transition: .5s ease-in-out;
+    z-index: 10;
+}
+.com-test-ranking-wrapper .rank-card:hover:before {
+    clip-path: circle(240px at 80% -20%);
+}
+.com-test-ranking-wrapper .rank-card:after {
+    content: 'TEST';
+    position: absolute;
+    top: 20%;
+    left: -20%;
+    font-size: 10em;
+    font-weight: bold;
+    font-style: italic;
+    color: rgba(255,255,255, .2);
+    z-index: 0;
+}
+.com-test-ranking-wrapper .rank-card .imgBx {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 10000;
+    text-align: center;
+    transition: .5s;
+}
+.com-test-ranking-wrapper .rank-card:hover .imgBx {
+    top: 0%;
+    transform: translateY(0%);
+}
+.com-test-ranking-wrapper .rank-card .contentBx {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    transition: 1s;
+    
+}
+.com-test-ranking-wrapper .rank-card .contentBx h2 {
+    transform: translateY(80px);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    transition: 1s;
+}
+.com-test-ranking-wrapper .rank-card .contentBx .size {
+    transform: translateY(200px);
+    transition: 1.2s;
+    display: flex;
+    justify-content: center;
+}
+.com-test-ranking-wrapper .rank-card .contentBx .size h3, 
+.com-test-ranking-wrapper .rank-card .contentBx .color h3 
+{
+    margin-right: 30px;
+    font-size: 20px;
+}
+.com-test-ranking-wrapper .rank-card .contentBx .color {
+    transform: translateY(220px);
+    transition: 1.5s;
+}
+.com-test-ranking-wrapper .rank-card:hover .contentBx h2 {
+    transform: translateY(-100px);
+}
+.com-test-ranking-wrapper .rank-card:hover .contentBx .size {
+    transform: translateY(-100px);
+    
+}
+.com-test-ranking-wrapper .rank-card:hover .contentBx .color {
+    transform: translateY(-100px);
+    
+}
