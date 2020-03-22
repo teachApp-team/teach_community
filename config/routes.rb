@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   get 'my_messages/:student_id', to: 'rooms#show'
   
+  get '/producer', to: 'home#producer'
+  
   
   resources :teachers
   resources :students

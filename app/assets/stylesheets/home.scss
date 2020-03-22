@@ -40,10 +40,170 @@
     background: rgba(0,0,0, .5);
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .modal-teacherLogin-wrapper {
     width: 300px;
     height: 600px;
     background: #232323;
+}
+
+
+
+// section-1
+
+.section-1 {
+    padding-top: 10vmin;
+    padding-bottom: 40px;
+}
+
+.section-1 .container .row .col-md-6 img{
+    opacity: 0.8;
+    width: 85%;
+    border-radius: 0.2em;
+}
+
+.section-1 .row .col-md-6:last-child{
+    position: relative;
+}
+
+.section-1 .row .col-md-6 .panel{
+    position: absolute;
+    top: 7vmin;
+    left: -18vmin;
+    background: white;
+    border-radius: 3px;
+    text-align: left;
+    padding: 13vmin 5vmin 10vmin 10vmin;
+    box-shadow: 0px 25px 42px rgba(0,0,0,0.2);
+    font-family: var(--Rubik);
+    z-index: 1;
+}
+.section-1 .row .col-md-6 .panel .btn-wrap{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.section-1 .row .col-md-6 .panel h1{
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+}
+
+.section-1 .row .col-md-6 .panel p{
+    font-size: 0.9em;
+    color: rgba(0,0,0,0.5);
+}
+
+.section-1 .row .col-md-6 .panel .text_btn{
+    padding: 0.8rem 2.0rem;
+    background-color: #445ae3;
+    border-radius: 2rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: #eee;
+    font-size: 1rem;
+    transition: .4s;
+}
+
+
+.section-1 .row .col-md-6 .panel .text_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: .5rem .5rem 5rem rgba(0,0,0,.8);
+}
+
+.section-1 .row .col-md-6 .panel .text_btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+
+// section-2
+
+.section-2 {
+    padding-top: 5vmin;
+}
+
+.section-2 .container .row .col-md-6 img{
+    opacity: 0.8;
+    width: 85%;
+    border-radius: 0.2em;
+}
+
+.section-2 .row .col-md-6:last-child{
+    position: relative;
+}
+
+.section-2 .row .col-md-6 .panel{
+    position: absolute;
+    top: 7vmin;
+    right: -18vmin;
+    background: white;
+    border-radius: 3px;
+    text-align: left;
+    padding: 13vmin 5vmin 10vmin 10vmin;
+    box-shadow: 0px 25px 42px rgba(0,0,0,0.2);
+    font-family: var(--Rubik);
+    z-index: 1;
+}
+.section-2 .row .col-md-6 .panel .btn-wrap{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.section-2 .row .col-md-6 .panel h1{
+    font-weight: bold;
+    padding: 0.4em 0;
+    font-size: 2em;
+}
+
+.section-2 .row .col-md-6 .panel p{
+    font-size: 0.9em;
+    color: rgba(0,0,0,0.5);
+}
+
+.section-2 .row .col-md-6 .panel .text_btn{
+    padding: 0.8rem 2.0rem;
+    background-color: #445ae3;
+    border-radius: 2rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: #eee;
+    font-size: 1rem;
+    transition: .4s;
+}
+
+
+.section-2 .row .col-md-6 .panel .text_btn:hover {
+    transform: translateY(-2px);
+    box-shadow: .5rem .5rem 5rem rgba(0,0,0,.8);
+}
+
+.section-2 .row .col-md-6 .panel .text_btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+// Footer
+footer {
+    background: rgba(0,0,0,0.8);
+    overflow-x: hidden;
+    padding: 14vmin 18vmin;
+    text-align: center;
+}
+
+footer .container .row .col-md{
+    text-align: center;
+}
+
+.producer_btn {
+    padding: 0.8rem 2.0rem;
+    background-color: #FF3300;
+    border-radius: 2rem;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: #eee;
+    font-size: 1rem;
+    transition: .4s;
 }
