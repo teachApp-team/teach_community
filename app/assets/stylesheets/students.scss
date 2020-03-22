@@ -89,3 +89,22 @@
     transform: scaleY(1);
     transform-origin: top;
 }
+
+// 生徒新規作成ページ
+
+.stu-new-wrapper {
+    text-align: center;
+}
+
+.stu-new-wrapper > h2 {
+    margin-bottom: 50px;
+}
+
+.stu-new-form {
+    width: 600px;
+    padding: 20px 40px;
+    box-shadow: 0 0 20px gray;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-align: left;
+}

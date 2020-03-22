@@ -1,3 +1,116 @@
-<h1>Communities#show</h1>
-<p>Find me in app/views/communities/show.html.erb</p>
-<%= link_to "編集", edit_community_path(@com.id), class: "btn btn-warning" %>
+<div class="flash-padding"></div>
+
+<div class="community-show-wrapper">
+    <div class="name-wrapper">
+        <div class="com-image">
+            <% if @com.image? %>
+              <%= image_tag @com.image.url, class: "com-show-image" %>
+            <% else %>
+              <%= image_tag "1.jpg" %>
+            <% end %>
+        </div>
+        <div class="com-intro">
+            <h3 class="name"><%= @com.name %></h3>
+            <p class="intro"><%= @com.introduction %></p>
+        </div>
+    </div>
+    <h2 class="students-wrapper-ttl">Students</h2>
+    <div class="students-wrapper">
+        <% if @com.students.present? %>
+            <% @com.students.each do |student| %>
+                <div class="ball-container">
+                    <a href="#">
+                        <% if @com.image? %>
+                          <%= image_tag @com.image.url, class: "com-show-image" %>
+                        <% else %>
+                          <%= image_tag "1.jpg" %>
+                        <% end %>                        
+                        <p class="name"><%= student.nickname %></p>
+                    </a>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+    
+    <div class="com-test-ranking-wrapper">
+        <div class="rank-card">
+            <div class="imgBx">
+                <!--<i class="fab fa-accusoft"></i>-->
+            </div>
+            <div class="contentBx">
+                <h2>第四回駿台模試</h2>
+                <div class="size">
+                    <h3>Size : </h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <div class="color">
+                    <h3>Color : </h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <a href="#">Buy now</a>
+        </div>
+        <div class="rank-card">
+            <div class="imgBx">
+                <!--<i class="fab fa-accusoft"></i>-->
+            </div>
+            <div class="contentBx">
+                <h2>第四回駿台模試</h2>
+                <div class="size">
+                    <h3>Size : </h3>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>10</span>
+                </div>
+                <div class="color">
+                    <h3>Color : </h3>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <a href="#">Buy now</a>
+        </div>
+        <div class="rank-card">
+            <div class="imgBx">
+                <!--<i class="fab fa-accusoft"></i>-->
+            </div>
+            <div class="contentBx">
+                <h2>全国統一高校生テスト</h2>
+                <div class="size">
+                    <h3>平均点 : </h3>
+                    <h3>８９点</h3>
+                </div>
+                <div class="color">
+                    <h3>平均偏差値 : 54.8c</h3>
+                </div>
+            </div>
+            <a href="#">Buy now</a>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+<%# link_to "編集", edit_community_path(@com.id), class: "btn btn-warning" %>

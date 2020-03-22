@@ -7,6 +7,19 @@ class StudentsController < ApplicationController
   end
 
   def new
+    @student = Student.new
+  end
+  
+  def create
+    @student = Student.new(student_params)
+    if @student.save
+      flash[:notice] = "新規登録ありがとうございます"
+      session[:student_id] = @student.id
+      redirect_to @student
+    else
+      flash[:notice] = "登録失敗です"
+      render :new
+    end
   end
 
   def edit
@@ -26,6 +39,12 @@ class StudentsController < ApplicationController
   end
 
   def mypage
+  end
+  
+  private
+  
+  def student_params
+    params.require(:student).permit(:full_name, :nickname, :password, :password_confirmation, :teacher_id, :email, :high_school, :university)
   end
   
   def image_params

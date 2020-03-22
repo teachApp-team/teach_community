@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'samples/hello'
   get 'samples/login_form'
   get 'my_students/:id', to: 'teachers#my_students'
+  post 'add', to: 'communities#add', as: 'add'
   
   get 'my_messages/:student_id', to: 'rooms#show'
   
