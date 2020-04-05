@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_112122) do
+ActiveRecord::Schema.define(version: 2020_03_31_110236) do
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2020_03_15_112122) do
     t.index ["room_id"], name: "index_entries_on_room_id"
     t.index ["student_id"], name: "index_entries_on_student_id"
     t.index ["teacher_id"], name: "index_entries_on_teacher_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.string "video_id"
+    t.text "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_favorites_on_teacher_id"
   end
 
   create_table "messages", force: :cascade do |t|

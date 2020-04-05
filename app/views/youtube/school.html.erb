@@ -1,0 +1,48 @@
+<div class="flash-padding"></div>
+<h1>hello</h1>
+
+<%= form_for(:school, method: "get", url: school_path) do |f| %>
+  <%= f.text_field :keyword, class: "form-control", size: "40" %>
+  <%= f.submit "search", class: "btn btn-success" %>
+<% end %>
+
+<div class="school-wrapper">
+  <% @response.each do |res| %>
+    <% unless res[0].present? %>
+      <div class="school-card">
+        <div class="image-wrapper">
+          <% if res["photo"].present? && res["photo"]["l"].present? %>
+            <img src="<%= res["photo"]["l"] %>">
+          <% end %>
+        </div>
+          <p><%= res["name"] %></p>
+          <hr></hr>
+         
+          <% if res["title"].present? %>
+            <p><%= res["title"] %></p>
+            <hr></hr>
+          <% end %>
+          <% if res["urls"].present? %>
+            <%= link_to "toHomePage", res["urls"]["pc"], class: "btn btn-outline-success" %>
+          <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+    // var request = new XMLHttpRequest();
+    // var url = 'https://webservice.recruit.co.jp/shingaku/school/v2?keyword=%E7%A0%94%E7%A9%B6&pref_cd=12&' + 'key=26e260d3d18d50fa'
+    // request.withCredentials = true;
+ 
+    // request.open('GET', url, true);
+    // request.responseType = 'json';
+ 
+    // request.onload = function () {
+    //   var data = this.response;
+    //   console.log(data);
+    //   consoel.log('hello');
+    // };
+ 
+    // request.send()
+</script>

@@ -1,6 +1,7 @@
 class Teacher < ApplicationRecord
     has_secure_password
     has_many :students
+    has_many :favorites
 
     has_many :com_teacher_relations, dependent: :delete_all
     has_many :communities, through: :com_teacher_relations

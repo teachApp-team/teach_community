@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   
   get '/producer', to: 'home#producer'
   
+  get 'mypage', to: 'teachers#mypage'
+  
+  get 'youtube', to: 'youtube#index'
+  get 'school', to: 'youtube#school'
+  post 'get_videos', to: 'youtube#get_videos'
+  post 'favorite_video', to: 'youtube#favorite'
+  
   
   resources :teachers
   resources :students

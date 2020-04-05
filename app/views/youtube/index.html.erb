@@ -1,0 +1,41 @@
+<div class="flash-padding"></div>
+<%= form_for :youtube, url: get_videos_path do |f|  %>
+  <div class="form-youtube">
+    <%= f.text_field :keyword, class: "form-control" %>
+    <%= f.submit "search", class: "btn btn-success ml-3" %>
+  </div>
+<% end %>
+<% @youtube_data.items.each do |item| %>
+  <% snippet = item.snippet %>
+  <p><%= snippet.title %></p>
+  <p><%= snippet.published_at %><%= snippet.channel_title %></p>
+  <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <%= form_for :youtube, url: favorite_video_path do |f| %>
+    <%= f.hidden_field :teacher_id, value: @current_teacher.id %>
+    <%= f.hidden_field :video_id, value: item.id.video_id %>
+    <%= f.submit "お気に入り", class: "btn btn-outline-success" %>
+  <% end %>
+ 
+<% end %>
+
+<hr>
+
+<% if @current_teacher.favorites.present? %>
+  <h1>お気に入り動画はあります</h1>
+  <% @current_teacher.favorites.each do |fav| %>
+    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= fav.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <% end %>
+<% else %>
+  <h1>何もありません</h1>
+<% end %>
+
+
+
+<!--[:@etag, :@items, :@kind, :@next_page_token, :@page_info, :@region_code]-->
+
+<style>
+  .form-youtube {
+    width: 500px;
+    display: flex;
+  }
+</style>
