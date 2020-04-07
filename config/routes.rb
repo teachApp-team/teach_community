@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  get 'topics/index'
+  get 'auth/:provider/callback', to: 'sessions#omni_create'
+  
+  
   post 'login', to: 'sessions#create'
   delete 'logout', to:  'sessions#destroy'
 
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
   resources :students
   resources :communities
   resources :messages
+  resources :topics, only: [:index]
   
   # get /teachers indexアクション
   # get /teacher/:id show

@@ -36,3 +36,10 @@
 .school-card:hover {
     transform: scale(1.2);
 }
+.school-form {
+    display: flex;
+}
+
+.school-form input[type="text"] {
+    width: 160px;
+}

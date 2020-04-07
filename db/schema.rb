@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_110236) do
+ActiveRecord::Schema.define(version: 2020_04_07_113920) do
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"
@@ -98,6 +98,22 @@ ActiveRecord::Schema.define(version: 2020_03_31_110236) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+  end
+
+  create_table "topic_sites", force: :cascade do |t|
+    t.string "name"
+    t.string "base_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "site_name"
+    t.string "title"
+    t.text "content"
+    t.string "link_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
