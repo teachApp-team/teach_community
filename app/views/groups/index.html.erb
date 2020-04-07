@@ -1,0 +1,9 @@
+<section>
+    <div class="group-wrapper">
+        <% @group.each do |n| %>
+            <div>
+                <%= link_to n.name, comment_path(n.id) %><br>
+            </div>
+        <% end %>
+    </div>
+</section>

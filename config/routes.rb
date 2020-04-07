@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   resources :students
   resources :communities
   resources :messages
+  resources :comments
+  resources :groups
   
   # get /teachers indexアクション
   # get /teacher/:id show

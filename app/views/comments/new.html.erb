@@ -1,0 +1,9 @@
+<section>
+    <div>
+        <h3>投稿する</h3>
+        <%= form_for :post, url: comments_path do |f| %>
+            <%= f.text_area :body, placeholder: '投稿内容' %>
+            <%= f.submit%>
+        <% end %>
+    </div>    
+</section>
