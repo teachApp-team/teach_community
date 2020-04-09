@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_113920) do
+
+ActiveRecord::Schema.define(version: 2020_04_07_094026) do
+
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"
@@ -28,6 +30,16 @@ ActiveRecord::Schema.define(version: 2020_04_07_113920) do
     t.datetime "updated_at", null: false
     t.index ["community_id"], name: "index_com_teacher_relations_on_community_id"
     t.index ["teacher_id"], name: "index_com_teacher_relations_on_teacher_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "student_id"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_comments_on_group_id"
+    t.index ["student_id"], name: "index_comments_on_student_id"
   end
 
 # Could not dump table "communities" because of following StandardError
@@ -51,6 +63,12 @@ ActiveRecord::Schema.define(version: 2020_04_07_113920) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["teacher_id"], name: "index_favorites_on_teacher_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|

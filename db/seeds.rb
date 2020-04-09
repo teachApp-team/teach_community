@@ -132,3 +132,41 @@ Message.create([
     }
 ])
 
+
+Group.create([
+    {
+        name: "浪人生の集い"
+    },
+    {
+        name: "駿台模試について語るスレ"
+    }
+])
+
+Comment.create([
+    {
+        group_id: 1,
+        student_id: 1,
+        body: "河合塾か駿台で迷ってる..."
+    },
+    {
+        group_id: 1,
+        student_id: 2,
+        body: "去年まで駿台通ってた。教師のレベルはすごい高いよ"
+    },
+    {
+        group_id: 1,
+        student_id: 3,
+        body: "俺は東進に通おうと思ってる。家からでも授業受けられるし効率高そうかなって思って。"
+        
+    },
+    {
+        group_id: 1,
+        student_id: 4,
+        body: "河合塾にしようかな。模試のクオリティ高いし"
+    },
+    {
+        group_id: 1,
+        student_id: 5,
+        body: "わいは宅浪でいく"
+    }])
+

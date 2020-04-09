@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   has_secure_password
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :comments, dependent: :destroy
  
   validates :full_name, presence: true
   validates :nickname, presence: true, uniqueness: true, length: { minimum: 3 }
