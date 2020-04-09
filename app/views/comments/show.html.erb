@@ -1,17 +1,33 @@
 <section>
+    <div>
+        <p class="lakjdfbhd">
+            <%= @group.name %>
+        </p>
+    </div>
     <div class="group-wrapper">
-        <% @comments.each do |c| %>
-            <div>
-                <%=c.body%><br>
-            </div>
-        <% end %>
+        <ol class="comment-list">
+            <% @comments.each do |c| %>
+                <li>
+                    <%=c.body%>
+                </li>
+            <% end %>
+        </ol>
         <h3>投稿する</h3>
-        <%= form_for :comment, url: comments_path do |f| %>
-            <%= f.text_area :body, placeholder: '投稿内容' %>
-            <%= f.hidden_field :group_id, :value => @current %> 
-            <%= f.hidden_field :student_id, :value =>  @current_student.id %>
-            <%= f.submit%>
-        <% end %>
+        <div>
+            <% if @current_student %>
+                <%= form_for :comment, url: comments_path do |f|%>
+                <div class= "comment-for">
+                    <%= f.text_area :body, placeholder: '投稿内容', cols: "100%", rows: "10" %>
+                </div>
+                    <%= f.hidden_field :group_id, :value => @current %> 
+                    <%= f.hidden_field :student_id, :value =>  @current_student.id %>
+                    <%= f.submit%>
+                <% end %>
+                <% else %>
+                投稿できるのは登録している生徒ユーザーのみです。
+                生徒の方はログインしてからこのスレにきましょう。
+            <% end %>
+        </div>
     </div>    
     </div>
 </section>

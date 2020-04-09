@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
         @comments = Comment.where(group_id: params[:id])
         @comment = Comment.new
         @current = params[:id]
+        @group = Group.find_by(id: params[:id])
     end
     
     def new
