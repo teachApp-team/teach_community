@@ -8,7 +8,7 @@ class Topic < ApplicationRecord
     
     def self.scrape
       agent = Mechanize.new                  #agentは任意の変数
-      page = agent.get(TopicSite.first.base_url)  #pageは任意の変数 getの引数はサイトのURL
+      page = agent.get( "https://www.keinet.ne.jp/exam/topic/index.html")  #pageは任意の変数 getの引数はサイトのURL
       elements = page.search('a.kn-link.-forward') #div.idxcol aは取得したい要素  elementsは任意の変数
       cnt = 0
       elements.each do |element|
@@ -19,6 +19,7 @@ class Topic < ApplicationRecord
           content: "特になし",
           link_url: element.attr("href")
         )
+        new_topic.save
       end
     end
     def self.scrape_tousin
@@ -29,11 +30,11 @@ class Topic < ApplicationRecord
       eles = []
       elements.each do |element|
         cnt += 1
-        url_array = element.attr("href").split('')
-        b_url = url_array.select do |u|
-          u != "." && u != "/"
-        end
-        t_url = b_url.join
+        t_url = element.attr("href").gsub('./', '')
+        # b_url = url_array.select do |u|
+        #   u != "." && u != "/"
+        # end
+        # t_url = b_url.join
         tousin_url = "https://www.toshin.com/news/" + t_url
         new_topic = Topic.new(
             site_name: "東進ハイスクール",

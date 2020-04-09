@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post 'get_videos', to: 'youtube#get_videos'
   post 'favorite_video', to: 'youtube#favorite'
   
+  get 'scrape', to: "topics#scrape_all"
   
   resources :teachers
   resources :students
