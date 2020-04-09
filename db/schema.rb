@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_04_07_094026) do
-
+ActiveRecord::Schema.define(version: 2020_04_07_113920) do
 
   create_table "com_student_relations", force: :cascade do |t|
     t.integer "community_id"

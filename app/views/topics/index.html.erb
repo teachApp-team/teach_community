@@ -3,7 +3,12 @@
 <p>https://www.keinet.ne.jp/exam/topic/20/20200402.pdf</p>
 <%= @results.length %>
 <% @results.each do |ele| %>
-    <p><%= ele %></p>
+    <% if ele.site_name == "河合塾" %>
+        <a href="https://www.keinet.ne.jp<%=ele.link_url%>"><%= ele.title %></a>
+    <% else %>
+        <a href="<%=ele.link_url%>"><%= ele.title %></a>
+    <% end %>
+    <br></br>
 <% end %>
 
 

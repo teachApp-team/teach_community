@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    @results = Topic.scrape_sundai
+    @results = Topic.all
+    
   end
 end
 
