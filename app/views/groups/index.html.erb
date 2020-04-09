@@ -1,9 +1,30 @@
 <section>
-    <div class="group-wrapper">
-        <% @group.each do |n| %>
-            <div>
-                <%= link_to n.name, comment_path(n.id) %><br>
-            </div>
+    <div class="group-wrapper-list">
+        <ul>
+            <% @group.each do |n| %>
+                <li>
+                    <%= link_to n.name, comment_path(n.id) %><br>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div>
+        <% if @current_teacher %>
+            <% if @current_teacher.full_name == "kosuke fujita" %>
+                <%= form_for :group, url: groups_path do |f| %>
+                    <p>
+                        <%= f.text_area :name, placeholder: 'スレのタイトルを入力する', cols: "40", rows: "5" %>
+                    </p>
+                    <p>
+                        <%= f.submit %>
+                    </p>
+                <% end %>
+                <% else %>
+                    <p>新しくスレを作る権限はスレ主だけです。</p>
+            <% end %>
+        <% else %>
+            <p>＊新しくスレを作る権限はスレ主だけです</p>
+            
         <% end %>
     </div>
 </section>

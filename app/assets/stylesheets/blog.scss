@@ -22,6 +22,7 @@
     position: relative;
     padding-left: 1.4em;
     line-height: 1.5em;
+    border-bottom: dashed 1px orange;
 }
 
 .group-wrapper .comment-list > li:before{
@@ -34,3 +35,31 @@
 }
 
 
+.group-wrapper .comment-list > li:last-of-type {
+  border-bottom: none; /*最後のliの線だけ消す*/
+}
+
+.group-wrapper-list {
+    margin: 30%;
+    margin-top: 50px;
+}
+
+.group-wrapper-list > ul {
+  border: solid 2px skyblue;/*線の設定*/
+  padding: 0.5em 1em 0.5em 2.3em;
+  position: relative;    
+}
+
+.group-wrapper-list > ul li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none!important;
+}
+
+.group-wrapper-list > ul li:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f075";/*アイコンの種類*/
+  position: absolute;
+  left : 1em; /*左端からのアイコンまで*/
+  color: skyblue; /*アイコン色*/
+}
