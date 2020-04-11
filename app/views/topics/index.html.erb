@@ -1,52 +1,43 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
-<p>https://www.keinet.ne.jp/exam/topic/20/20200402.pdf</p>
-
 
 <div class="topics-wrapper">
     <h1>Topics</h1>
     <div class="list-wrapper">
         <div class="kawai topic-list">
             <h3>河合塾</h3>
-            <div class="card-wrapper"></div>
+            <hr></hr>
+            <div class="card-wrapper">
+                <% @kawai_topics.each do |t| %>
+                    <div class="topic-card">
+                        <a href=https://www.keinet.ne.jp<%=t.link_url%>><%= t.title %></a>
+                    </div>
+                <% end %>
+            </div>
             <hr></hr>
         </div>
         <div class="sundai topic-list">
-            <h3>駿台</h3>
+            <h3 class="sundai-c">駿台</h3>
             <hr></hr>
+            <div class="card-wrapper">
+                <% @sundai_topics.each do |t| %>
+                    <div class="topic-card">
+                        <a href="<%=t.link_url%>" class="sundai-c"><%= t.title %></a>
+                    </div>
+                <% end %>
+            </div>
         </div>
         <div class="tousin topic-list">
-            <h3>東進</h3>
+            <h3 class="tousin-c">東進</h3>
             <hr></hr>
+            <div class="card-wrapper">
+                <% @tousin_topics.each do |t| %>
+                    <div class="topic-card">
+                        <a href="<%=t.link_url%>" class="tousin-c"><%= t.title %></a>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
-
-
-
-
-<%= @results.length %>
-<% @results.each do |ele| %>
-    <% if ele.site_name == "河合塾" %>
-        <span><%= ele.site_name %></span> : <a href="https://www.keinet.ne.jp<%=ele.link_url%>"><%= ele.title %></a>
-    <% else %>
-        <span><%= ele.site_name %></span> : <a href="<%=ele.link_url%>"><%= ele.title %></a>
-    <% end %>
-    <br></br>
-<% end %>
-
-
-
-
-
-
-<% if false %>
-河合塾
-<% @results.each do |ele| %>
-    <a href="https://www.keinet.ne.jp<%=ele.link_url%>"><%= ele.title %></a>
-    <hr>
-<% end %>
-<% end %>
 
 
 
