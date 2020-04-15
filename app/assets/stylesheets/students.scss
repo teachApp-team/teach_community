@@ -90,6 +90,26 @@
     transform-origin: top;
 }
 
+@media( max-width: 1000px ){
+    .fullpageMenu .banner {
+        min-width: 300px;
+        width: 300px;
+  }
+    .fullpageMenu .navLists ul li a {
+       font-size: 3em;
+  }
+}
+@media( max-width: 720px ){
+    .fullpageMenu .banner {
+       display: none;
+  }
+    .fullpageMenu .navLists ul li a {
+       font-size: 2em;
+  }
+}
+
+
+
 // 生徒新規作成ページ
 
 .stu-new-wrapper {
